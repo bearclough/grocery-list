@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import Realm
+
+class Item: RLMObject {
+    dynamic var name = ""
+    
+}
