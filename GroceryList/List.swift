@@ -10,16 +10,26 @@ import Foundation
 import Realm
 
 class List: RLMObject {
-    dynamic var name = ""
-    dynamic var store = ""
+    dynamic var name: String = ""
+    dynamic var store: String = ""
+    
     dynamic var items = RLMArray(objectClassName: Item.className())
-    dynamic let createDate: NSDate
+    
+    /*init(name: String, store: String) {
+        self.name = name
+        self.store = store
+        
+        super.init()
+    }*/
+    
+    
+    
+    /*dynamic let createDate: NSDate
     
     init(name: String) {
         self.name = name
         self.createDate = NSDate();
-
-    }
+    }*/
     
 }
 

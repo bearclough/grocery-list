@@ -11,5 +11,4 @@ import Realm
 
 class Item: RLMObject {
     dynamic var name = ""
-    
 }
