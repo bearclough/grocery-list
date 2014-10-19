@@ -206,4 +206,4 @@ xcuserdata
 # If you'll leave this file in git - you will have merge conflicts during
 # pull your cahnges to other's repo"
 #
-#*.xccheckout
+*.xccheckout

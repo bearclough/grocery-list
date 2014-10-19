@@ -13,9 +13,12 @@ class ItemTableViewController: UITableViewController {
     
     // MARK: Properties
     var items: [Item]
+    var list: List?
     
     // MARK: Initializer
     required init(coder aDecoder: NSCoder) {
+        
+        self.items = []
         
         super.init(coder: aDecoder)
         

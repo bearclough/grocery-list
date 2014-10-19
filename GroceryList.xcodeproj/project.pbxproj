@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D90A745819F2E55E00C9E715 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90A745719F2E55E00C9E715 /* ItemTableViewController.swift */; };
+		D91ED3A419F46262004E128F /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91ED3A319F46262004E128F /* CreateListViewController.swift */; };
 		D92EEA3B19E2097900CC7CCD /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA3A19E2097900CC7CCD /* List.swift */; };
 		D92EEA3D19E20A5D00CC7CCD /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92EEA3C19E20A5D00CC7CCD /* Realm.framework */; };
 		D92EEA3F19E20A8200CC7CCD /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D92EEA3E19E20A8200CC7CCD /* libc++.dylib */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		D90A745719F2E55E00C9E715 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		D91ED3A319F46262004E128F /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		D92EEA3A19E2097900CC7CCD /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		D92EEA3C19E20A5D00CC7CCD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		D92EEA3E19E20A8200CC7CCD /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -83,6 +85,7 @@
 			children = (
 				D99580AD19E1C558004353EF /* ListTableViewController.swift */,
 				D90A745719F2E55E00C9E715 /* ItemTableViewController.swift */,
+				D91ED3A319F46262004E128F /* CreateListViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */,
+				D91ED3A419F46262004E128F /* CreateListViewController.swift in Sources */,
 				D9C5343019E0CCD70021BF44 /* AppDelegate.swift in Sources */,
 				D99580AE19E1C558004353EF /* ListTableViewController.swift in Sources */,
 				D92EEA3B19E2097900CC7CCD /* List.swift in Sources */,
@@ -392,6 +396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -399,6 +404,7 @@
 				INFOPLIST_FILE = GroceryList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -407,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

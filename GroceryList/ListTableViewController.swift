@@ -8,19 +8,19 @@
 
 import Foundation
 import UIKit
+import Realm
 
 class ListTableViewController: UITableViewController {
     
     // MARK: Properties
     
-    var lists: [List]
+    var lists: RLMArray
     
     // MARK: Initializer
     
     required init(coder aDecoder: NSCoder) {
         
-        
-        let traderJoes = List()
+        /*let traderJoes = List()
         traderJoes.name = "Trader Joes"
         traderJoes.store = "Trade Joes"
         
@@ -32,7 +32,9 @@ class ListTableViewController: UITableViewController {
         bevMo.name = "BevMo"
         bevMo.store = "BevMo"
         
-        lists = [traderJoes, freshAndEasy, bevMo]
+        lists = [traderJoes, freshAndEasy, bevMo]*/
+        
+        self.lists = List.allObjects()
         
         super.init(coder: aDecoder)
         
@@ -75,19 +77,25 @@ class ListTableViewController: UITableViewController {
         // return number of rows
         println("Number of lists = \(lists.count)")
         
-        return lists.count
+        return Int(lists.count)
         
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        // return cell for function
+
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("listCell") as UITableViewCell
         
-        var list = self.lists[indexPath.row]
-        cell.textLabel!.text = list.name
+        if let list = self.lists.objectAtIndex(UInt(indexPath.row)) as? List {
+            cell.textLabel!.text = list.name
+        }
         
         return cell;
+    }
+    
+    
+    override func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
+    
+        
     }
     
     // MARK: Table View Delegate
@@ -106,6 +114,34 @@ class ListTableViewController: UITableViewController {
         
     }
     
+    @IBAction func cancelCreateList(segue: UIStoryboardSegue) {
+        
+        println("Returned from Cancel Create List Segue")
+        
+    }
+    
+    @IBAction func createList(segue: UIStoryboardSegue) {
+    
+        println("Returned from Create List Segue")
+        
+        var createListController = segue.sourceViewController as CreateListViewController
+        
+        // create list in memory
+        var list = List()
+        if let name = createListController.name { list.name = name }
+        if let store = createListController.store { list.store = store }
+        
+        // create list in Realm
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        realm.addObject(list)
+        realm.commitWriteTransaction()
+        
+        // reload table view data
+        self.lists = List.allObjects()
+        self.tableView.reloadData()
+    }
+
     
     
 }

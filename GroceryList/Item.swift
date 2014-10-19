@@ -10,5 +10,11 @@ import Foundation
 import Realm
 
 class Item: RLMObject {
+    
+    // MARK: Properties
     dynamic var name = ""
+    dynamic var quantity = ""
+    
+    // MARK: Relationship
+    dynamic var list = List()
 }
