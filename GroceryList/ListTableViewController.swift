@@ -20,20 +20,6 @@ class ListTableViewController: UITableViewController {
     
     required init(coder aDecoder: NSCoder) {
         
-        /*let traderJoes = List()
-        traderJoes.name = "Trader Joes"
-        traderJoes.store = "Trade Joes"
-        
-        let freshAndEasy = List()
-        freshAndEasy.name = "Fresh & Easy"
-        freshAndEasy.store = "Fresh & Easy"
-        
-        let bevMo = List()
-        bevMo.name = "BevMo"
-        bevMo.store = "BevMo"
-        
-        lists = [traderJoes, freshAndEasy, bevMo]*/
-        
         self.lists = List.allObjects()
         
         super.init(coder: aDecoder)
@@ -83,7 +69,7 @@ class ListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("listCell") as UITableViewCell
+        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("listCell") as UITableViewCell
         
         if let list = self.lists.objectAtIndex(UInt(indexPath.row)) as? List {
             cell.textLabel!.text = list.name
