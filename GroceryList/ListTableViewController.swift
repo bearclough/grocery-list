@@ -73,6 +73,7 @@ class ListTableViewController: UITableViewController {
         
         if let list = self.lists.objectAtIndex(UInt(indexPath.row)) as? List {
             cell.textLabel!.text = list.name
+            cell.accessoryType = .DisclosureIndicator
         }
         
         return cell;
@@ -89,7 +90,9 @@ class ListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // cell was selected
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        self.performSegueWithIdentifier("showListItems", sender: self)
     }
     
     // MARK: Segue Handling
@@ -97,6 +100,7 @@ class ListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         // handle segue transitions here
+        
         
     }
     
