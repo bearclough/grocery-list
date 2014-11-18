@@ -20,6 +20,7 @@
 		D9C5343919E0CCD70021BF44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C5343819E0CCD70021BF44 /* Images.xcassets */; };
 		D9C5343C19E0CCD70021BF44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C5343A19E0CCD70021BF44 /* LaunchScreen.xib */; };
 		D9C5344819E0CCD70021BF44 /* GroceryListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5344719E0CCD70021BF44 /* GroceryListTests.swift */; };
+		D9F8C1821A1AF922009C785E /* CreateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F8C1811A1AF922009C785E /* CreateItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		D9C5344119E0CCD70021BF44 /* GroceryListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C5344619E0CCD70021BF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9C5344719E0CCD70021BF44 /* GroceryListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListTests.swift; sourceTree = "<group>"; };
+		D9F8C1811A1AF922009C785E /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				D99580AD19E1C558004353EF /* ListTableViewController.swift */,
 				D90A745719F2E55E00C9E715 /* ItemTableViewController.swift */,
 				D91ED3A319F46262004E128F /* CreateListViewController.swift */,
+				D9F8C1811A1AF922009C785E /* CreateItemViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */,
 				D91ED3A419F46262004E128F /* CreateListViewController.swift in Sources */,
 				D9C5343019E0CCD70021BF44 /* AppDelegate.swift in Sources */,
+				D9F8C1821A1AF922009C785E /* CreateItemViewController.swift in Sources */,
 				D99580AE19E1C558004353EF /* ListTableViewController.swift in Sources */,
 				D92EEA3B19E2097900CC7CCD /* List.swift in Sources */,
 				D90A745819F2E55E00C9E715 /* ItemTableViewController.swift in Sources */,

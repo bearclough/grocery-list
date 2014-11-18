@@ -117,6 +117,42 @@ class ItemTableViewController: UITableViewController {
         
     }
     
+    @IBAction func cancelCreateItem(segue: UIStoryboardSegue) {
+        println("Returned from Create Item Segue")
+    }
+    
+    
+    @IBAction func createItem(segue: UIStoryboardSegue) {
+        println("Returned from Create List Segue")
+        
+        var createItemController = segue.sourceViewController as CreateItemViewController
+        
+        // create item in memory
+        var item = Item()
+        if let name = createItemController.name { item.name = name }
+        if let quantity = createItemController.quantity {item.quantity = quantity }
+        
+        // set items list to list view controller is pointing to
+        item.list = self.list
+        //self.list?.items.addObject(item)
+        
+        // create item in Realm
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        realm.addObject(item)
+        //realm.addOrUpdateObject(self.list)
+        realm.commitWriteTransaction()
+        
+        // reload table view data
+        
+        if let name = self.list?.name {
+            let itemPredicate = NSPredicate(format: "list.name = %@", name)
+            self.items = Item.objectsWithPredicate(itemPredicate)
+            println("Item added to list")
+        }
+        
+    }
+    
     // MARK: Interactivity
     
     func addItem() {

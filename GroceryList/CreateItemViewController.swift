@@ -1,27 +1,24 @@
 //
-//  CreateListViewController.swift
+//  CreateItemViewController.swift
 //  GroceryList
 //
-//  Created by bearclough on 10/19/14.
+//  Created by bearclough on 11/17/14.
 //  Copyright (c) 2014 bearclough. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class CreateListViewController: UIViewController {
-    
+class CreateItemViewController: UIViewController {
     // MARK: Properties
     
     @IBOutlet weak var nameTextField: UITextField!
-    
-    @IBOutlet weak var storeTextField: UITextField!
+    @IBOutlet weak var quantityTextField: UITextField!
     
     var name: String?
-    var store: String?
+    var quantity: String?
     
     // MARK: Initializer
-    
     required init(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
@@ -36,13 +33,11 @@ class CreateListViewController: UIViewController {
         
     }
     
-    
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
         
     }
-    
     
     override func viewDidAppear(animated: Bool) {
         
@@ -50,67 +45,67 @@ class CreateListViewController: UIViewController {
         
     }
     
-    
     // MARK: Lifetime
     deinit {
         // deinitialize observers
+        
     }
     
     // MARK: Segue Handling
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        // handle prepare for segue
         if let identifier = segue.identifier {
+            
+            println("Should perform segue with \(identifier)")
             
             switch identifier {
                 
-            case "createList":
-                println("Preparing for Create List Segue, name = \(self.name), store = \(self.store)")
+            case "createItem":
+                println("Preparing for Create Item Segue, name = \(self.name)")
                 
-            case "cancelCreateList":
-                println("Preparing for Cancel Create List Segue")
+            case "cancelCreateItem":
+                println("Preparing for Cancel Create Item Segue")
                 
             default:
                 println("Preparing for \(identifier) Segue")
                 
             }
+            
         }
-        
-        
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         
         // check if fields are properly filled out for create
         if let identifier = identifier {
-            
             println("Should perform segue with \(identifier)")
             
             switch identifier {
+            case "createItem":
                 
-            case "createList":
+                if let name = self.nameTextField.text {
+                    self.name = name
+                }
                 
-                if let name = self.nameTextField.text { self.name = name }
+                if let quantity = self.quantityTextField.text {
+                    self.quantity = quantity
+                }
                 
-                if let store = self.storeTextField.text {self.store = store }
-                
-                if (self.name != nil) {
+                if (self.name != "") {
                     return true
                 }
                 
-            case "cancelCreateList":
+            case "cancelCreateItem":
                 return true
-                
+            
             default:
                 return false
+                
             }
-            
+        
         }
         
         return false
-        
     }
-    
     
 }

@@ -17,5 +17,9 @@ class List: RLMObject {
     
     // MARK: Relationships
     dynamic var items = RLMArray(objectClassName: Item.className())
+    
+    override class func primaryKey() -> String {
+        return "name"
+    }
 }
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -230,17 +231,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjt-aq-pfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vwZ-1j-hvz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1680" y="868"/>
+            <point key="canvasLocation" x="1680" y="751.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Item View Controller-->
         <scene sceneID="RZs-UZ-u1U">
             <objects>
-                <viewController id="LCY-0D-JLo" sceneMemberID="viewController">
+                <viewController id="LCY-0D-JLo" customClass="CreateItemViewController" customModule="GroceryList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ETG-Cb-hfF"/>
                         <viewControllerLayoutGuide type="bottom" id="gzo-XN-7g0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7lk-bX-EXD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAc-gn-gF4">
@@ -255,11 +257,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Tx-WK-sKi">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gc-Zc-Gm5">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
@@ -277,6 +274,9 @@
                                 <state key="normal" title="Create">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="75i-59-dlf" kind="unwind" identifier="createItem" unwindAction="createItem:" id="qqb-ih-rkD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLp-Qz-5Wc">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -284,7 +284,15 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="75i-59-dlf" kind="unwind" identifier="cancelCreateItem" unwindAction="cancelCreateItem:" id="Yks-81-sYc"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Tx-WK-sKi">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -293,12 +301,14 @@
                             <constraint firstAttribute="centerX" secondItem="6gc-Zc-Gm5" secondAttribute="centerX" id="EpJ-LE-msU"/>
                             <constraint firstItem="g0z-P8-SBV" firstAttribute="top" secondItem="HAc-gn-gF4" secondAttribute="bottom" constant="29" id="GIy-mW-7tD"/>
                             <constraint firstItem="6gc-Zc-Gm5" firstAttribute="top" secondItem="HAc-gn-gF4" secondAttribute="bottom" constant="111" id="Hnh-V0-dHh"/>
+                            <constraint firstItem="1Tx-WK-sKi" firstAttribute="leading" secondItem="7lk-bX-EXD" secondAttribute="leadingMargin" constant="10" id="RMW-2g-UGG"/>
                             <constraint firstItem="1Tx-WK-sKi" firstAttribute="top" secondItem="g0z-P8-SBV" secondAttribute="bottom" constant="3" id="W4e-WU-S1f">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="iLp-Qz-5Wc" secondAttribute="centerX" id="Yuq-yS-kC4">
                                 <variation key="heightClass=regular-widthClass=compact" constant="50"/>
                             </constraint>
+                            <constraint firstItem="gqW-eQ-aNP" firstAttribute="leading" secondItem="7lk-bX-EXD" secondAttribute="leadingMargin" constant="10" id="Za7-Ox-DP1"/>
                             <constraint firstItem="1Tx-WK-sKi" firstAttribute="top" secondItem="g0z-P8-SBV" secondAttribute="bottom" constant="8" id="cWC-0W-9DI"/>
                             <constraint firstAttribute="centerX" secondItem="1Tx-WK-sKi" secondAttribute="centerX" id="dHd-FN-2Cl"/>
                             <constraint firstAttribute="centerX" secondItem="tKk-ag-akT" secondAttribute="centerX" id="fJ5-Ym-FkN">
@@ -309,27 +319,31 @@
                             <constraint firstAttribute="centerX" secondItem="g0z-P8-SBV" secondAttribute="centerX" id="mt5-km-LpV"/>
                             <constraint firstAttribute="centerX" secondItem="HAc-gn-gF4" secondAttribute="centerX" id="qOa-H8-tAK"/>
                             <constraint firstAttribute="centerX" secondItem="gqW-eQ-aNP" secondAttribute="centerX" id="rDz-j8-5VF"/>
+                            <constraint firstItem="1Tx-WK-sKi" firstAttribute="leading" secondItem="7lk-bX-EXD" secondAttribute="leadingMargin" constant="10" id="sBs-dK-6SV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="HAc-gn-gF4"/>
                                 <exclude reference="g0z-P8-SBV"/>
-                                <exclude reference="1Tx-WK-sKi"/>
                                 <exclude reference="6gc-Zc-Gm5"/>
                                 <exclude reference="gqW-eQ-aNP"/>
                                 <exclude reference="tKk-ag-akT"/>
                                 <exclude reference="iLp-Qz-5Wc"/>
+                                <exclude reference="1Tx-WK-sKi"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="RMW-2g-UGG"/>
                                 <exclude reference="W4e-WU-S1f"/>
                                 <exclude reference="cWC-0W-9DI"/>
                                 <exclude reference="dHd-FN-2Cl"/>
+                                <exclude reference="sBs-dK-6SV"/>
                                 <exclude reference="EpJ-LE-msU"/>
                                 <exclude reference="Hnh-V0-dHh"/>
                                 <exclude reference="7Lq-Dd-CQ9"/>
                                 <exclude reference="qOa-H8-tAK"/>
                                 <exclude reference="GIy-mW-7tD"/>
                                 <exclude reference="mt5-km-LpV"/>
+                                <exclude reference="Za7-Ox-DP1"/>
                                 <exclude reference="iek-9B-0Fi"/>
                                 <exclude reference="rDz-j8-5VF"/>
                                 <exclude reference="Yuq-yS-kC4"/>
@@ -342,22 +356,25 @@
                             <mask key="subviews">
                                 <include reference="HAc-gn-gF4"/>
                                 <include reference="g0z-P8-SBV"/>
-                                <include reference="1Tx-WK-sKi"/>
                                 <include reference="6gc-Zc-Gm5"/>
                                 <include reference="gqW-eQ-aNP"/>
                                 <include reference="tKk-ag-akT"/>
                                 <include reference="iLp-Qz-5Wc"/>
+                                <include reference="1Tx-WK-sKi"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="RMW-2g-UGG"/>
                                 <exclude reference="W4e-WU-S1f"/>
                                 <include reference="cWC-0W-9DI"/>
                                 <include reference="dHd-FN-2Cl"/>
+                                <include reference="sBs-dK-6SV"/>
                                 <include reference="EpJ-LE-msU"/>
                                 <include reference="Hnh-V0-dHh"/>
                                 <include reference="7Lq-Dd-CQ9"/>
                                 <include reference="qOa-H8-tAK"/>
                                 <include reference="GIy-mW-7tD"/>
                                 <include reference="mt5-km-LpV"/>
+                                <include reference="Za7-Ox-DP1"/>
                                 <include reference="iek-9B-0Fi"/>
                                 <include reference="rDz-j8-5VF"/>
                                 <include reference="Yuq-yS-kC4"/>
@@ -367,10 +384,15 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="1Tx-WK-sKi" id="G7U-nl-8iH"/>
+                        <outlet property="quantityTextField" destination="gqW-eQ-aNP" id="y5b-aX-vt2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otS-Bj-2SX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="75i-59-dlf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2649" y="879"/>
+            <point key="canvasLocation" x="2556" y="751.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="3lV-oo-wlo">

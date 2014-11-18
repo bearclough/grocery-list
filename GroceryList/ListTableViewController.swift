@@ -19,9 +19,8 @@ class ListTableViewController: UITableViewController {
     // MARK: Initializer
     
     required init(coder aDecoder: NSCoder) {
-        
+                
         self.lists = List.allObjects()
-        
         super.init(coder: aDecoder)
         
     }
@@ -92,7 +91,7 @@ class ListTableViewController: UITableViewController {
         // cell was selected
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        self.performSegueWithIdentifier("showListItems", sender: self)
+        self.performSegueWithIdentifier("showListItems", sender: indexPath)
     }
     
     // MARK: Segue Handling
@@ -100,6 +99,27 @@ class ListTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         // handle segue transitions here
+        if let identifier = segue.identifier {
+            
+            
+            switch identifier {
+            case "showListItems":
+                
+                println("Preparing for showListItems segue")
+                var itemTableViewController = segue.destinationViewController as ItemTableViewController
+                
+                if let indexPath = sender as? NSIndexPath {
+                    itemTableViewController.list = self.lists.objectAtIndex(UInt(indexPath.row)) as List
+                }
+                
+                
+            default:
+                
+                println("Preparing for \(identifier) segue")
+                
+            }
+            
+        }
         
         
     }
@@ -118,8 +138,13 @@ class ListTableViewController: UITableViewController {
         
         // create list in memory
         var list = List()
-        if let name = createListController.name { list.name = name }
-        if let store = createListController.store { list.store = store }
+        
+        if let name = createListController.name {
+            list.name = name
+        }
+        if let store = createListController.store {
+            list.store = store
+        }
         
         // create list in Realm
         let realm = RLMRealm.defaultRealm()

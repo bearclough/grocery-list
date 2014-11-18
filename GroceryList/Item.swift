@@ -14,7 +14,27 @@ class Item: RLMObject {
     // MARK: Properties
     dynamic var name = ""
     dynamic var quantity = ""
+    dynamic var department = ""
+    dynamic var priority = ""
     
     // MARK: Relationship
     dynamic var list = List()
+    
 }
+
+enum Priority: String {
+    case Urgent = "urgent"
+    case Default = "default"
+}
+
+enum Department: String {
+    case Produce = "produce"
+    case Meat = "meat"
+    case Dairy = "dairy"
+    case FozenFood = "frozen food"
+    case PersonalCare = "personal care"
+    case General = "general"
+}
+
+
+
