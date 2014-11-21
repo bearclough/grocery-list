@@ -19,19 +19,8 @@ class ItemTableViewController: UITableViewController {
     
     // MARK: Initializer
     required init(coder aDecoder: NSCoder) {
-        
-        if let name = list?.name {
             
-            let itemPredicate = NSPredicate(format: "list.name = %@", name)
-            self.items = Item.objectsWithPredicate(itemPredicate)
-            
-        }
-            
-        else {
-            
-            self.items = RLMArray(objectClassName: Item.className())
-            
-        }
+        self.items = RLMArray(objectClassName: Item.className())
         
         super.init(coder: aDecoder)
         
@@ -55,6 +44,14 @@ class ItemTableViewController: UITableViewController {
         
         if let addItem = self.addItemBarButtonItem {
             self.navigationItem.rightBarButtonItem = addItem
+        }
+        
+        // populate list of items b/c this is never called in init
+        if let name = list?.name {
+            
+            let itemPredicate = NSPredicate(format: "list.name = %@", name)
+            self.items = Item.objectsWithPredicate(itemPredicate)
+            
         }
         
         
