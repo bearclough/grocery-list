@@ -94,15 +94,15 @@ class ItemTableViewController: UITableViewController {
         
         var cell: ItemCell? = self.tableView.dequeueReusableCellWithIdentifier(kItemCellIdentifier) as? ItemCell
         
+        // if there is not an existing cell to use we'll create a new one
         if cell == nil {
             
             tableView.registerClass(ItemCell.classForCoder(), forCellReuseIdentifier: kItemCellIdentifier)
-            
             cell = ItemCell(style: UITableViewCellStyle.Default, reuseIdentifier: kItemCellIdentifier)
             
         }
-
         
+        // configure cell by calling helper method in ItemCell
         if let item = self.items.objectAtIndex(UInt(indexPath.row)) as? Item {
             
             cell!.configureForItem(item.name, quantity: item.quantity, priority: item.priority)
@@ -140,6 +140,7 @@ class ItemTableViewController: UITableViewController {
     @IBAction func createItem(segue: UIStoryboardSegue) {
         println("Returned from Create List Segue")
         
+        // get information from the create view controller
         var createItemController = segue.sourceViewController as CreateItemViewController
         
         // create item in memory
@@ -157,13 +158,7 @@ class ItemTableViewController: UITableViewController {
         self.list?.items.addObject(item)
         realm.commitWriteTransaction()
         
-        // reload table view data
-        
-        if let name = self.list?.name {
-            let itemPredicate = NSPredicate(format: "list.name = %@", name)
-            self.items = Item.objectsWithPredicate(itemPredicate)
-            println("Item added to list")
-        }
+        self.refreshItemsInList()
         
     }
     
@@ -171,6 +166,22 @@ class ItemTableViewController: UITableViewController {
     
     func addItem() {
         self.performSegueWithIdentifier("addItemSegue", sender: self.addItemBarButtonItem)
+    }
+    
+    // MARK: Helper Methods
+    
+    func refreshItemsInList() {
+        
+        // reload table view data
+        if let name = self.list?.name {
+            
+            let itemPredicate = NSPredicate(format: "list.name = %@", name)
+            self.items = Item.objectsWithPredicate(itemPredicate)
+            println("Item added to list")
+            
+        }
+        
+        self.tableView.reloadData()
     }
     
 }
