@@ -62,30 +62,42 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="8" y="11" width="46" height="21"/>
-                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBq-ui-CUK">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="327" y="11" width="65" height="21"/>
-                                            </variation>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="EpN-jC-wGP" firstAttribute="leading" secondItem="tRa-cH-x5F" secondAttribute="leadingMargin" constant="10" id="4rt-W9-F7l"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wBq-ui-CUK" secondAttribute="trailing" constant="10" id="pNu-2T-ieo"/>
+                                        <constraint firstAttribute="centerY" secondItem="EpN-jC-wGP" secondAttribute="centerY" id="qHa-kc-bLx"/>
+                                        <constraint firstAttribute="centerY" secondItem="wBq-ui-CUK" secondAttribute="centerY" id="xPd-fd-LPl"/>
+                                    </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="EpN-jC-wGP"/>
                                             <exclude reference="wBq-ui-CUK"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="pNu-2T-ieo"/>
+                                            <exclude reference="xPd-fd-LPl"/>
+                                            <exclude reference="4rt-W9-F7l"/>
+                                            <exclude reference="qHa-kc-bLx"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="EpN-jC-wGP"/>
                                             <include reference="wBq-ui-CUK"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="pNu-2T-ieo"/>
+                                            <include reference="xPd-fd-LPl"/>
+                                            <include reference="4rt-W9-F7l"/>
+                                            <include reference="qHa-kc-bLx"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
