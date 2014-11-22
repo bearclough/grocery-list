@@ -109,7 +109,7 @@ class ListTableViewController: UITableViewController {
                 var itemTableViewController = segue.destinationViewController as ItemTableViewController
                 
                 if let indexPath = sender as? NSIndexPath {
-                    itemTableViewController.list = self.lists.objectAtIndex(UInt(indexPath.row)) as List
+                    itemTableViewController.list = self.lists.objectAtIndex(UInt(indexPath.row)) as? List
                 }
                 
                 

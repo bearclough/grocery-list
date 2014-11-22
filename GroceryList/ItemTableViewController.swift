@@ -17,6 +17,8 @@ class ItemTableViewController: UITableViewController {
     var list: List?
     var addItemBarButtonItem: UIBarButtonItem?
     
+    let kItemCellIdentifier: String = "ItemCell"
+    
     // MARK: Initializer
     required init(coder aDecoder: NSCoder) {
             
@@ -43,11 +45,13 @@ class ItemTableViewController: UITableViewController {
             action: Selector("addItem"))
         
         if let addItem = self.addItemBarButtonItem {
+            
             self.navigationItem.rightBarButtonItem = addItem
+            
         }
         
         // populate list of items b/c this is never called in init
-        if let name = list?.name {
+        if let name = self.list?.name {
             
             let itemPredicate = NSPredicate(format: "list.name = %@", name)
             self.items = Item.objectsWithPredicate(itemPredicate)
@@ -86,14 +90,26 @@ class ItemTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
         
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("itemCell") as UITableViewCell
+        var cell: ItemCell? = self.tableView.dequeueReusableCellWithIdentifier(kItemCellIdentifier) as? ItemCell
+        
+        if cell == nil {
+            
+            tableView.registerClass(ItemCell.classForCoder(), forCellReuseIdentifier: kItemCellIdentifier)
+            
+            cell = ItemCell(style: UITableViewCellStyle.Default, reuseIdentifier: kItemCellIdentifier)
+            
+        }
+
         
         if let item = self.items.objectAtIndex(UInt(indexPath.row)) as? Item {
-            cell.textLabel!.text = item.name
+            
+            cell!.configureForItem(item.name, quantity: item.quantity, priority: item.priority)
+            
         }
         
-        return cell;
+        return cell!;
         
     }
     
@@ -115,7 +131,9 @@ class ItemTableViewController: UITableViewController {
     }
     
     @IBAction func cancelCreateItem(segue: UIStoryboardSegue) {
+        
         println("Returned from Create Item Segue")
+        
     }
     
     
@@ -131,13 +149,12 @@ class ItemTableViewController: UITableViewController {
         
         // set items list to list view controller is pointing to
         item.list = self.list
-        //self.list?.items.addObject(item)
         
         // create item in Realm
         let realm = RLMRealm.defaultRealm()
         realm.beginWriteTransaction()
         realm.addObject(item)
-        //realm.addOrUpdateObject(self.list)
+        self.list?.items.addObject(item)
         realm.commitWriteTransaction()
         
         // reload table view data

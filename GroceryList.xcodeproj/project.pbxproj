@@ -14,6 +14,7 @@
 		D92EEA3F19E20A8200CC7CCD /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D92EEA3E19E20A8200CC7CCD /* libc++.dylib */; };
 		D92EEA4119E20A9B00CC7CCD /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA4019E20A9B00CC7CCD /* RLMSupport.swift */; };
 		D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA4219E20C7500CC7CCD /* Item.swift */; };
+		D988C6001A1EE66C0058B277 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988C5FF1A1EE66C0058B277 /* ItemCell.swift */; };
 		D99580AE19E1C558004353EF /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99580AD19E1C558004353EF /* ListTableViewController.swift */; };
 		D9C5343019E0CCD70021BF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5342F19E0CCD70021BF44 /* AppDelegate.swift */; };
 		D9C5343719E0CCD70021BF44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C5343519E0CCD70021BF44 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		D92EEA3E19E20A8200CC7CCD /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		D92EEA4019E20A9B00CC7CCD /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		D92EEA4219E20C7500CC7CCD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D988C5FF1A1EE66C0058B277 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		D99580AD19E1C558004353EF /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		D9C5342A19E0CCD70021BF44 /* GroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C5342E19E0CCD70021BF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		D99580AC19E1C4D7004353EF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D988C5FF1A1EE66C0058B277 /* ItemCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */,
 				D91ED3A419F46262004E128F /* CreateListViewController.swift in Sources */,
+				D988C6001A1EE66C0058B277 /* ItemCell.swift in Sources */,
 				D9C5343019E0CCD70021BF44 /* AppDelegate.swift in Sources */,
 				D9F8C1821A1AF922009C785E /* CreateItemViewController.swift in Sources */,
 				D99580AE19E1C558004353EF /* ListTableViewController.swift in Sources */,
