@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B19DC979CE542C3C223752B9 /* libPods-GroceryList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEE6612A65B85B8C3F0A032 /* libPods-GroceryList.a */; };
 		D90A745819F2E55E00C9E715 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90A745719F2E55E00C9E715 /* ItemTableViewController.swift */; };
 		D91ED3A419F46262004E128F /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91ED3A319F46262004E128F /* CreateListViewController.swift */; };
 		D92EEA3B19E2097900CC7CCD /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA3A19E2097900CC7CCD /* List.swift */; };
@@ -16,6 +17,7 @@
 		D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA4219E20C7500CC7CCD /* Item.swift */; };
 		D988C6001A1EE66C0058B277 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988C5FF1A1EE66C0058B277 /* ItemCell.swift */; };
 		D99580AE19E1C558004353EF /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99580AD19E1C558004353EF /* ListTableViewController.swift */; };
+		D9C260701A214B9E0035B059 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C2606F1A214B9E0035B059 /* Colors.swift */; };
 		D9C5343019E0CCD70021BF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5342F19E0CCD70021BF44 /* AppDelegate.swift */; };
 		D9C5343719E0CCD70021BF44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C5343519E0CCD70021BF44 /* Main.storyboard */; };
 		D9C5343919E0CCD70021BF44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C5343819E0CCD70021BF44 /* Images.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19979B8A55BDB1E801A0FCD1 /* Pods-GroceryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.release.xcconfig"; sourceTree = "<group>"; };
+		3CFD0EDC5D671A90267B78C6 /* Pods-GroceryList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.debug.xcconfig"; sourceTree = "<group>"; };
 		D90A745719F2E55E00C9E715 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		D91ED3A319F46262004E128F /* CreateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		D92EEA3A19E2097900CC7CCD /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
@@ -42,8 +46,10 @@
 		D92EEA3E19E20A8200CC7CCD /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		D92EEA4019E20A9B00CC7CCD /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		D92EEA4219E20C7500CC7CCD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D9832C201A203EDB00F6B365 /* GroceryList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroceryList-Bridging-Header.h"; sourceTree = "<group>"; };
 		D988C5FF1A1EE66C0058B277 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		D99580AD19E1C558004353EF /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		D9C2606F1A214B9E0035B059 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D9C5342A19E0CCD70021BF44 /* GroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C5342E19E0CCD70021BF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9C5342F19E0CCD70021BF44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +60,7 @@
 		D9C5344619E0CCD70021BF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9C5344719E0CCD70021BF44 /* GroceryListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListTests.swift; sourceTree = "<group>"; };
 		D9F8C1811A1AF922009C785E /* CreateItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
+		FFEE6612A65B85B8C3F0A032 /* libPods-GroceryList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroceryList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +70,7 @@
 			files = (
 				D92EEA3F19E20A8200CC7CCD /* libc++.dylib in Frameworks */,
 				D92EEA3D19E20A5D00CC7CCD /* Realm.framework in Frameworks */,
+				B19DC979CE542C3C223752B9 /* libPods-GroceryList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,8 +88,18 @@
 			isa = PBXGroup;
 			children = (
 				D92EEA3E19E20A8200CC7CCD /* libc++.dylib */,
+				FFEE6612A65B85B8C3F0A032 /* libPods-GroceryList.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92B13B8A912359825D9F9B95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3CFD0EDC5D671A90267B78C6 /* Pods-GroceryList.debug.xcconfig */,
+				19979B8A55BDB1E801A0FCD1 /* Pods-GroceryList.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D99580AA19E1C3A3004353EF /* Controllers */ = {
@@ -108,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				D988C5FF1A1EE66C0058B277 /* ItemCell.swift */,
+				D9C2606F1A214B9E0035B059 /* Colors.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -121,6 +140,8 @@
 				D9C5344419E0CCD70021BF44 /* GroceryListTests */,
 				D9C5342B19E0CCD70021BF44 /* Products */,
 				74842CC8FE84CED3C108E5FC /* Frameworks */,
+				92B13B8A912359825D9F9B95 /* Pods */,
+				D9832C201A203EDB00F6B365 /* GroceryList-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9C5344B19E0CCD70021BF44 /* Build configuration list for PBXNativeTarget "GroceryList" */;
 			buildPhases = (
+				57E1F4D82669A9971601B806 /* Check Pods Manifest.lock */,
 				D9C5342619E0CCD70021BF44 /* Sources */,
 				D9C5342719E0CCD70021BF44 /* Frameworks */,
 				D9C5342819E0CCD70021BF44 /* Resources */,
+				77E753078DCC2A576121059E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,12 +291,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		57E1F4D82669A9971601B806 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		77E753078DCC2A576121059E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D9C5342619E0CCD70021BF44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */,
+				D9C260701A214B9E0035B059 /* Colors.swift in Sources */,
 				D91ED3A419F46262004E128F /* CreateListViewController.swift in Sources */,
 				D988C6001A1EE66C0058B277 /* ItemCell.swift in Sources */,
 				D9C5343019E0CCD70021BF44 /* AppDelegate.swift in Sources */,
@@ -402,6 +459,7 @@
 		};
 		D9C5344C19E0CCD70021BF44 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CFD0EDC5D671A90267B78C6 /* Pods-GroceryList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -412,6 +470,7 @@
 				INFOPLIST_FILE = GroceryList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GroceryList-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -419,6 +478,7 @@
 		};
 		D9C5344D19E0CCD70021BF44 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19979B8A55BDB1E801A0FCD1 /* Pods-GroceryList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -429,6 +489,7 @@
 				INFOPLIST_FILE = GroceryList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GroceryList-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

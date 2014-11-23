@@ -71,7 +71,7 @@ class ListTableViewController: UITableViewController {
         var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("listCell") as UITableViewCell
         
         if let list = self.lists.objectAtIndex(UInt(indexPath.row)) as? List {
-            cell.textLabel!.text = list.name
+            cell.textLabel.text = list.name
             cell.accessoryType = .DisclosureIndicator
         }
         

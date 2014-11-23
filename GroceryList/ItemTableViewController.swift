@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Realm
 
-class ItemTableViewController: UITableViewController {
+class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
     
     // MARK: Properties
     var items: RLMArray
@@ -109,6 +109,8 @@ class ItemTableViewController: UITableViewController {
             
         }
         
+        cell!.delegate = self
+        
         return cell!;
         
     }
@@ -143,29 +145,84 @@ class ItemTableViewController: UITableViewController {
         // get information from the create view controller
         var createItemController = segue.sourceViewController as CreateItemViewController
         
-        // create item in memory
-        var item = Item()
-        if let name = createItemController.name { item.name = name }
-        if let quantity = createItemController.quantity {item.quantity = quantity }
-        
-        // set items list to list view controller is pointing to
-        item.list = self.list
-        
-        // create item in Realm
-        let realm = RLMRealm.defaultRealm()
-        realm.beginWriteTransaction()
-        realm.addObject(item)
-        self.list?.items.addObject(item)
-        realm.commitWriteTransaction()
-        
+        // create item
+        self.createItem(createItemController.name, quantity: createItemController.quantity)
         self.refreshItemsInList()
         
     }
     
+    // MARK: Swipe Delegate Methods
+    
+    func swipeTableCell(cell: MGSwipeTableCell!, canSwipe direction: MGSwipeDirection) -> Bool {
+        
+        // only allow swiping in one direction
+        if (direction == MGSwipeDirection.LeftToRight) {
+            
+            return true
+            
+        }
+        
+        return false
+        
+    }
+    
+    func swipeTableCell(cell: MGSwipeTableCell!, didChangeSwipeState state: MGSwipeState, gestureIsActive: Bool) {
+        return
+    }
+    
+    func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {
+        
+        if (direction == MGSwipeDirection.LeftToRight) {
+            
+            swipeSettings.transition = MGSwipeTransition.TransitionDrag
+            expansionSettings.buttonIndex = 0
+            expansionSettings.fillOnTrigger = true
+            return self.createLeftButtons()
+        }
+        
+        return []
+    }
+    
+    func swipeTableCell(cell: MGSwipeTableCell!, tappedButtonAtIndex index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool {
+        
+        if (direction == MGSwipeDirection.LeftToRight) {
+            
+            switch index {
+                
+            case 0:
+                
+                // delete item
+                if let indexPath = self.tableView.indexPathForCell(cell) {
+                    self.destroyItem(indexPath)
+                }
+                
+            default:
+                
+                println("This button shouldn't be here something has gone terribly wrong :(")
+                
+            }
+            
+        }
+        
+        return true
+        
+    }
+    
+    func createLeftButtons() -> [AnyObject] {
+        
+        let leftButton = MGSwipeButton(title: "Got It!", backgroundColor: Colors().jade)
+        let leftButtons = [ leftButton ]
+        return leftButtons
+        
+    }
+    
+    
     // MARK: Interactivity
     
     func addItem() {
+        
         self.performSegueWithIdentifier("addItemSegue", sender: self.addItemBarButtonItem)
+        
     }
     
     // MARK: Helper Methods
@@ -177,11 +234,49 @@ class ItemTableViewController: UITableViewController {
             
             let itemPredicate = NSPredicate(format: "list.name = %@", name)
             self.items = Item.objectsWithPredicate(itemPredicate)
-            println("Item added to list")
+            println(".Items in list have been updated.")
             
         }
         
         self.tableView.reloadData()
+    }
+    
+    func createItem( name: String?, quantity: String? ) {
+        
+        var item = Item()
+        if let itemName = name { item.name = itemName }
+        if let itemQuantity = quantity {item.quantity = itemQuantity }
+        
+        // set items list to list view controller is pointing to
+        item.list = self.list
+        
+        // create item in Realm
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        
+        realm.addObject(item)
+        self.list?.items.addObject(item)
+        
+        realm.commitWriteTransaction()
+        
+    }
+
+    func destroyItem( indexPath: NSIndexPath ) {
+        
+        if let item = self.items.objectAtIndex(UInt(indexPath.row)) as? Item {
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            
+            self.list?.items.removeObjectAtIndex(UInt(indexPath.row))
+            realm.deleteObject(item)
+            
+            realm.commitWriteTransaction()
+            
+        }
+        
+        self.refreshItemsInList()
+        
     }
     
 }

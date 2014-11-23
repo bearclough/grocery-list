@@ -82,10 +82,10 @@
                                             <exclude reference="wBq-ui-CUK"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="pNu-2T-ieo"/>
-                                            <exclude reference="xPd-fd-LPl"/>
                                             <exclude reference="4rt-W9-F7l"/>
                                             <exclude reference="qHa-kc-bLx"/>
+                                            <exclude reference="pNu-2T-ieo"/>
+                                            <exclude reference="xPd-fd-LPl"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -94,10 +94,10 @@
                                             <include reference="wBq-ui-CUK"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="pNu-2T-ieo"/>
-                                            <include reference="xPd-fd-LPl"/>
                                             <include reference="4rt-W9-F7l"/>
                                             <include reference="qHa-kc-bLx"/>
+                                            <include reference="pNu-2T-ieo"/>
+                                            <include reference="xPd-fd-LPl"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

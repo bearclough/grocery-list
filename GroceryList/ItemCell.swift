@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ItemCell : UITableViewCell {
+class ItemCell : MGSwipeTableCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var quantity: UILabel!
@@ -21,7 +21,7 @@ class ItemCell : UITableViewCell {
         
     }
     
-    override init?(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -45,6 +45,18 @@ class ItemCell : UITableViewCell {
         }
         
         // determine image or color to display high priority
+        
+        // configure for swipe
+        //self.configureForSwipe()
+        
+    }
+    
+    func configureForSwipe() {
+        
+        // TODO put in imgae for Got It!
+        var leftButton = MGSwipeButton(title: "Got It!", backgroundColor: Colors().jade)
+        self.leftButtons = [ leftButton ]
+        self.leftSwipeSettings.transition = MGSwipeTransition.TransitionDrag
         
     }
     
