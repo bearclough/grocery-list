@@ -15,6 +15,7 @@
 		D92EEA3F19E20A8200CC7CCD /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D92EEA3E19E20A8200CC7CCD /* libc++.dylib */; };
 		D92EEA4119E20A9B00CC7CCD /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA4019E20A9B00CC7CCD /* RLMSupport.swift */; };
 		D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA4219E20C7500CC7CCD /* Item.swift */; };
+		D95899611A229532001A2CA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95899601A229532001A2CA8 /* User.swift */; };
 		D988C6001A1EE66C0058B277 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988C5FF1A1EE66C0058B277 /* ItemCell.swift */; };
 		D99580AE19E1C558004353EF /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99580AD19E1C558004353EF /* ListTableViewController.swift */; };
 		D9C260701A214B9E0035B059 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C2606F1A214B9E0035B059 /* Colors.swift */; };
@@ -46,6 +47,7 @@
 		D92EEA3E19E20A8200CC7CCD /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		D92EEA4019E20A9B00CC7CCD /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		D92EEA4219E20C7500CC7CCD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D95899601A229532001A2CA8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D9832C201A203EDB00F6B365 /* GroceryList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroceryList-Bridging-Header.h"; sourceTree = "<group>"; };
 		D988C5FF1A1EE66C0058B277 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		D99580AD19E1C558004353EF /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				D92EEA3A19E2097900CC7CCD /* List.swift */,
 				D92EEA4219E20C7500CC7CCD /* Item.swift */,
+				D95899601A229532001A2CA8 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				D92EEA3B19E2097900CC7CCD /* List.swift in Sources */,
 				D90A745819F2E55E00C9E715 /* ItemTableViewController.swift in Sources */,
 				D92EEA4119E20A9B00CC7CCD /* RLMSupport.swift in Sources */,
+				D95899611A229532001A2CA8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
