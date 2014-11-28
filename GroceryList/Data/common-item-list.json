@@ -1,0 +1,13 @@
+{
+  "items" : [
+    {
+      "name" : "milk",
+      "department" : "dairy",
+      "units" : [
+        "gallon",
+        "quart",
+        "bottle"
+      ]
+    }
+  ]
+}
