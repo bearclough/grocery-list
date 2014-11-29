@@ -28,5 +28,5 @@ class User : RLMObject {
         return "userName"
     }
     
-    
+
 }

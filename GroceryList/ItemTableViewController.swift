@@ -13,7 +13,8 @@ import Realm
 class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
     
     // MARK: Properties
-    var items: RLMArray
+    var items: [Department: RLMArray]
+    
     var list: List?
     var addItemBarButtonItem: UIBarButtonItem?
     
@@ -21,8 +22,8 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
     
     // MARK: Initializer
     required init(coder aDecoder: NSCoder) {
-            
-        self.items = RLMArray(objectClassName: Item.className())
+        
+        self.items = Dictionary<Department, RLMArray>()
         
         super.init(coder: aDecoder)
         
@@ -50,13 +51,7 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
             
         }
         
-        // populate list of items b/c this is never called in init
-        if let name = self.list?.name {
-            
-            let itemPredicate = NSPredicate(format: "list.name = %@", name)
-            self.items = Item.objectsWithPredicate(itemPredicate)
-            
-        }
+        self.refreshItemsInList()
         
         
     }
@@ -80,12 +75,40 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
     }
     
     // MARK: Table View Datasource
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        // get number of cases in item department enum
+        return Department.allValues.count
+        
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        let headerTitle = Department.allValues[section].rawValue
+        println("Title for section \(section) is \(headerTitle).")
+        return headerTitle
+    }
+    
+    
+        
+        
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        // get department of section
+        let department = Department.allValues[section] as Department
         
-        // return number of rows
-        println("Number of items = \(items.count)")
-        
-        return Int(items.count)
+        // get number of items in array of items for departmetn
+        if let itemCount = self.items[department]?.count {
+            
+            // return number of rows
+            println("Number of items = \(itemCount) for section \(section)")
+            
+            return Int(itemCount)
+            
+        }
+
+        return 0
         
     }
     
@@ -102,10 +125,15 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
             
         }
         
-        // configure cell by calling helper method in ItemCell
-        if let item = self.items.objectAtIndex(UInt(indexPath.row)) as? Item {
+        // get item for cell
+        if let department = Department.allValues[indexPath.section] as Department? {
             
-            cell!.configureForItem(item.name, quantity: item.quantity, priority: item.priority)
+            if let item = self.items[department]?.objectAtIndex(UInt(indexPath.row)) as Item? {
+                
+                // configure cell by calling helper method in ItemCell
+                cell!.configureForItem(item.name, quantity: item.quantity, priority: item.priority)
+                
+            }
             
         }
         
@@ -148,6 +176,7 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
         // create item
         self.createItem(createItemController.name, quantity: createItemController.quantity)
         self.refreshItemsInList()
+        self.tableView.reloadData()
         
     }
     
@@ -229,21 +258,29 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
     
     func refreshItemsInList() {
         
-        // reload table view data
+        // populate list of items b/c this is never called in init
         if let name = self.list?.name {
             
-            let itemPredicate = NSPredicate(format: "list.name = %@", name)
-            self.items = Item.objectsWithPredicate(itemPredicate)
-            println(".Items in list have been updated.")
+            // populate dictionary of item arrays
+            for department in Department.allValues {
+                // populate dictionay with items
+                let itemPredicate = NSPredicate(format: "list.name = %@ AND department = %@", name, department.rawValue)
+                println("Searching for all items in \(department.rawValue) for list \(name)")
+                
+                let departmentItems = Item.objectsWithPredicate(itemPredicate)
+                
+                // add to items dictionary
+                self.items[department] = departmentItems
+            }
             
         }
         
-        self.tableView.reloadData()
+        
     }
     
     func createItem( name: String?, quantity: String? ) {
         
-        var item = Item()
+        /*var item = Item()
         if let itemName = name { item.name = itemName }
         if let itemQuantity = quantity {item.quantity = itemQuantity }
         
@@ -255,15 +292,16 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
         realm.beginWriteTransaction()
         
         realm.addObject(item)
+        
         self.list?.items.addObject(item)
         
-        realm.commitWriteTransaction()
+        realm.commitWriteTransaction()*/
         
     }
 
     func destroyItem( indexPath: NSIndexPath ) {
         
-        if let item = self.items.objectAtIndex(UInt(indexPath.row)) as? Item {
+        /*if let item = self.items.objectAtIndex(UInt(indexPath.row)) as? Item {
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
@@ -276,6 +314,7 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
         }
         
         self.refreshItemsInList()
+        self.tableView.reloadData()*/
         
     }
     

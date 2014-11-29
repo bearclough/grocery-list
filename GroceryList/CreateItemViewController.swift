@@ -14,6 +14,7 @@ class CreateItemViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
+    @IBOutlet weak var selectDepartmentView: SelectDepartmentView!
     
     var name: String?
     var quantity: String?

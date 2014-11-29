@@ -31,9 +31,11 @@ enum Department: String {
     case Produce = "produce"
     case Meat = "meat"
     case Dairy = "dairy"
+    case General = "general"
     case FozenFood = "frozen food"
     case PersonalCare = "personal care"
-    case General = "general"
+    
+    static let allValues = [Produce, Meat, Dairy, FozenFood, PersonalCare, General]
 }
 
 

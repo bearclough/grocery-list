@@ -16,7 +16,9 @@
 		D92EEA4119E20A9B00CC7CCD /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA4019E20A9B00CC7CCD /* RLMSupport.swift */; };
 		D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92EEA4219E20C7500CC7CCD /* Item.swift */; };
 		D95899611A229532001A2CA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95899601A229532001A2CA8 /* User.swift */; };
+		D95899641A29042F001A2CA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95899631A29042F001A2CA8 /* Constants.swift */; };
 		D988C6001A1EE66C0058B277 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988C5FF1A1EE66C0058B277 /* ItemCell.swift */; };
+		D991537F1A293A0500D460F8 /* SelectDepartmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D991537E1A293A0500D460F8 /* SelectDepartmentView.swift */; };
 		D99580AE19E1C558004353EF /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99580AD19E1C558004353EF /* ListTableViewController.swift */; };
 		D9C260701A214B9E0035B059 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C2606F1A214B9E0035B059 /* Colors.swift */; };
 		D9C5343019E0CCD70021BF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5342F19E0CCD70021BF44 /* AppDelegate.swift */; };
@@ -48,8 +50,10 @@
 		D92EEA4019E20A9B00CC7CCD /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		D92EEA4219E20C7500CC7CCD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D95899601A229532001A2CA8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D95899631A29042F001A2CA8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D9832C201A203EDB00F6B365 /* GroceryList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroceryList-Bridging-Header.h"; sourceTree = "<group>"; };
 		D988C5FF1A1EE66C0058B277 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		D991537E1A293A0500D460F8 /* SelectDepartmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDepartmentView.swift; sourceTree = "<group>"; };
 		D99580AD19E1C558004353EF /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		D9C2606F1A214B9E0035B059 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D9C5342A19E0CCD70021BF44 /* GroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D95899621A29041F001A2CA8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D95899631A29042F001A2CA8 /* Constants.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		D99580AA19E1C3A3004353EF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +140,7 @@
 		D99580AC19E1C4D7004353EF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D991537E1A293A0500D460F8 /* SelectDepartmentView.swift */,
 				D988C5FF1A1EE66C0058B277 /* ItemCell.swift */,
 				D9C2606F1A214B9E0035B059 /* Colors.swift */,
 			);
@@ -160,6 +173,7 @@
 		D9C5342C19E0CCD70021BF44 /* GroceryList */ = {
 			isa = PBXGroup;
 			children = (
+				D95899621A29041F001A2CA8 /* Utilities */,
 				D99580AA19E1C3A3004353EF /* Controllers */,
 				D99580AB19E1C3AB004353EF /* Models */,
 				D99580AC19E1C4D7004353EF /* Views */,
@@ -333,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92EEA4319E20C7500CC7CCD /* Item.swift in Sources */,
+				D991537F1A293A0500D460F8 /* SelectDepartmentView.swift in Sources */,
 				D9C260701A214B9E0035B059 /* Colors.swift in Sources */,
 				D91ED3A419F46262004E128F /* CreateListViewController.swift in Sources */,
 				D988C6001A1EE66C0058B277 /* ItemCell.swift in Sources */,
@@ -343,6 +358,7 @@
 				D90A745819F2E55E00C9E715 /* ItemTableViewController.swift in Sources */,
 				D92EEA4119E20A9B00CC7CCD /* RLMSupport.swift in Sources */,
 				D95899611A229532001A2CA8 /* User.swift in Sources */,
+				D95899641A29042F001A2CA8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
