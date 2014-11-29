@@ -5,6 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target "GroceryList" do
 pod 'MGSwipeTableCell', '~> 1.3.3'
+pod 'TNRadioButtonGroup', '~> 0.4'
 end
 
 target "GroceryListTests" do
