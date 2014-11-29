@@ -74,7 +74,7 @@ class SelectDepartmentView: UIView {
         self.departmentGroup = TNRadioButtonGroup(radioButtonData: radioButtonData, layout: TNRadioButtonGroupLayoutVertical)
         self.departmentGroup.identifier = "Department Group"
         self.departmentGroup.create()
-        //self.departmentGroup.position = CGPointMake(25.0, 175.0)
+        self.departmentGroup.position = CGPointMake(0.0, 0.0)
         self.addSubview(self.departmentGroup)
 
     }

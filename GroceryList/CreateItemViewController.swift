@@ -32,6 +32,8 @@ class CreateItemViewController: UIViewController {
         
         super.viewDidLoad()
         
+        // [tap requireGestureRecognizerToFail:longPress]
+        
     }
     
     override func viewWillAppear(animated: Bool) {
