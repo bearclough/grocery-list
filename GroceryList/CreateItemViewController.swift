@@ -14,13 +14,19 @@ class CreateItemViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
-    @IBOutlet weak var selectDepartmentView: SelectDepartmentView!
+    
+    var selectDepartmentView: SelectDepartmentView
+    
+    //@IBOutlet weak var selectDepartmentView: SelectDepartmentView!
     
     var name: String?
     var quantity: String?
     
     // MARK: Initializer
     required init(coder aDecoder: NSCoder) {
+        
+        var bounds: CGRect = UIScreen.mainScreen().bounds
+        self.selectDepartmentView = SelectDepartmentView(frame: bounds)
         
         super.init(coder: aDecoder)
         
@@ -30,9 +36,17 @@ class CreateItemViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        // register
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("departmentGroupUpdated:"), name: SELECTED_RADIO_BUTTON_CHANGED, object: self.selectDepartmentView.departmentGroup)
+        
         super.viewDidLoad()
         
         // [tap requireGestureRecognizerToFail:longPress]
+
+        //var bounds: CGRect = UIScreen.mainScreen().bounds
+        
+        
+        self.view.addSubview(self.selectDepartmentView)
         
     }
     
@@ -50,8 +64,9 @@ class CreateItemViewController: UIViewController {
     
     // MARK: Lifetime
     deinit {
-        // deinitialize observers
         
+        // deinitialize observers
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: SELECTED_RADIO_BUTTON_CHANGED, object: self.selectDepartmentView.departmentGroup)
     }
     
     // MARK: Segue Handling
@@ -109,6 +124,14 @@ class CreateItemViewController: UIViewController {
         }
         
         return false
+    }
+    
+    // MARK: Notification Handling
+    
+    func departmentGroupUpdated(notification: NSNotification) {
+        
+        println("Department group updated to \(self.selectDepartmentView.departmentGroup.selectedRadioButton.data.identifier)")
+        
     }
     
 }
