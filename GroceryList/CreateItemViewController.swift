@@ -21,6 +21,7 @@ class CreateItemViewController: UIViewController {
     
     var name: String?
     var quantity: String?
+    var department: Department?
     
     // MARK: Initializer
     required init(coder aDecoder: NSCoder) {
@@ -36,15 +37,7 @@ class CreateItemViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        // register
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("departmentGroupUpdated:"), name: SELECTED_RADIO_BUTTON_CHANGED, object: self.selectDepartmentView.departmentGroup)
-        
         super.viewDidLoad()
-        
-        // [tap requireGestureRecognizerToFail:longPress]
-
-        //var bounds: CGRect = UIScreen.mainScreen().bounds
-        
         
         self.view.addSubview(self.selectDepartmentView)
         
@@ -54,11 +47,22 @@ class CreateItemViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
+        // register observers
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("departmentGroupUpdated:"), name: SELECTED_RADIO_BUTTON_CHANGED, object: self.selectDepartmentView.departmentGroup)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
+
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // deinitialize observers
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: SELECTED_RADIO_BUTTON_CHANGED, object: self.selectDepartmentView.departmentGroup)
         
     }
     
@@ -107,6 +111,12 @@ class CreateItemViewController: UIViewController {
                 
                 if let quantity = self.quantityTextField.text {
                     self.quantity = quantity
+                }
+                
+                if let department = Department(rawValue: self.selectDepartmentView.departmentGroup.selectedRadioButton.data.identifier)  {
+                    
+                    self.department = department
+                    
                 }
                 
                 if (self.name != "") {

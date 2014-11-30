@@ -86,8 +86,8 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         let headerTitle = Department.allValues[section].rawValue
-        println("Title for section \(section) is \(headerTitle).")
         return headerTitle
+        
     }
     
     
@@ -102,7 +102,7 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
         if let itemCount = self.items[department]?.count {
             
             // return number of rows
-            println("Number of items = \(itemCount) for section \(section)")
+            println("Number of items = \(itemCount) for section \(section) in department \(department.rawValue)")
             
             return Int(itemCount)
             
@@ -128,12 +128,24 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
         // get item for cell
         if let department = Department.allValues[indexPath.section] as Department? {
             
-            if let item = self.items[department]?.objectAtIndex(UInt(indexPath.row)) as Item? {
-                
-                // configure cell by calling helper method in ItemCell
-                cell!.configureForItem(item.name, quantity: item.quantity, priority: item.priority)
+            // TODO refactor trying to check for index out of bound exceptions but this is ugly code
+            if let itemArray = self.items[department]? as RLMArray? {
+                if (itemArray.count > UInt(indexPath.row)) {
+                    
+                    if let item = self.items[department]?.objectAtIndex(UInt(indexPath.row)) as Item? {
+                        
+                        // configure cell by calling helper method in ItemCell
+                        cell!.configureForItem(item.name, quantity: item.quantity, priority: item.priority)
+                    }
+                }
+                else {
+                    println("Unable to find item for section = \(indexPath.section) and row = \(indexPath.row) for the \(department.rawValue)")
+                    cell!.configureForItem("Item Does Not Exist", quantity: nil, priority: nil)
+                }
                 
             }
+            
+
             
         }
         
@@ -174,7 +186,7 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
         var createItemController = segue.sourceViewController as CreateItemViewController
         
         // create item
-        self.createItem(createItemController.name, quantity: createItemController.quantity)
+        self.createItem(createItemController.name, quantity: createItemController.quantity, department: createItemController.department)
         self.refreshItemsInList()
         self.tableView.reloadData()
         
@@ -226,9 +238,7 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
                 }
                 
             default:
-                
                 println("This button shouldn't be here something has gone terribly wrong :(")
-                
             }
             
         }
@@ -268,6 +278,7 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
                 println("Searching for all items in \(department.rawValue) for list \(name)")
                 
                 let departmentItems = Item.objectsWithPredicate(itemPredicate)
+                println("Found \(departmentItems.count) for \(department.rawValue)")
                 
                 // add to items dictionary
                 self.items[department] = departmentItems
@@ -275,14 +286,19 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
             
         }
         
+        println("Done refreshing items in list")
         
+        for (department, items) in self.items {
+            println("\(department.rawValue) => \(items)")
+        }
     }
     
-    func createItem( name: String?, quantity: String? ) {
+    func createItem( name: String?, quantity: String?, department: Department?) {
         
-        /*var item = Item()
+        var item = Item()
         if let itemName = name { item.name = itemName }
-        if let itemQuantity = quantity {item.quantity = itemQuantity }
+        if let itemQuantity = quantity { item.quantity = itemQuantity }
+        if let itemDepartment = department { item.department = itemDepartment.rawValue as String }
         
         // set items list to list view controller is pointing to
         item.list = self.list
@@ -295,26 +311,32 @@ class ItemTableViewController: UITableViewController, MGSwipeTableCellDelegate {
         
         self.list?.items.addObject(item)
         
-        realm.commitWriteTransaction()*/
+        realm.commitWriteTransaction()
         
     }
 
     func destroyItem( indexPath: NSIndexPath ) {
         
-        /*if let item = self.items.objectAtIndex(UInt(indexPath.row)) as? Item {
+        // get item for cell
+        if let department = Department.allValues[indexPath.section] as Department? {
             
-            let realm = RLMRealm.defaultRealm()
-            realm.beginWriteTransaction()
-            
-            self.list?.items.removeObjectAtIndex(UInt(indexPath.row))
-            realm.deleteObject(item)
-            
-            realm.commitWriteTransaction()
+            if let item = self.items[department]?.objectAtIndex(UInt(indexPath.row)) as Item? {
+                
+                println("Delete Item name = \(item.name) and department = \(item.department)")
+                
+                let realm = RLMRealm.defaultRealm()
+                realm.beginWriteTransaction()
+                
+                realm.deleteObject(item)
+                
+                realm.commitWriteTransaction()
+                
+            }
             
         }
         
         self.refreshItemsInList()
-        self.tableView.reloadData()*/
+        self.tableView.reloadData()
         
     }
     

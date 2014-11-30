@@ -88,7 +88,7 @@ class SelectDepartmentView: UIView {
         personalCareData.circleLineThickness = self.circleLineThickness
         
         var frozenFoodData = TNCircularRadioButtonData()
-        frozenFoodData.labelText = "FrozenFood"
+        frozenFoodData.labelText = "Frozen Food"
         frozenFoodData.identifier = Department.FozenFood.rawValue
         frozenFoodData.selected = false
         frozenFoodData.borderColor = Colors().picton
@@ -97,7 +97,7 @@ class SelectDepartmentView: UIView {
         frozenFoodData.circleRadius = self.circleRadius
         frozenFoodData.circleLineThickness = self.circleLineThickness
         
-        var radioButtonData: [TNCircularRadioButtonData] = [generalData, produceData, dairyData, meatData, personalCareData, frozenFoodData]
+        var radioButtonData: [TNCircularRadioButtonData] = [produceData, dairyData, meatData, personalCareData, frozenFoodData, generalData]
         
         self.departmentGroup = TNRadioButtonGroup(radioButtonData: radioButtonData, layout: TNRadioButtonGroupLayoutVertical)
         self.departmentGroup.identifier = "Department Group"
